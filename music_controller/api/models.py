@@ -7,7 +7,7 @@ def gererate_unique_code():
     length= 6
 
     while True:
-        code=gererate_unique_code.join(random.choices(string.ascii_uppercase, k=length))
+        code= ''.join(random.choices(string.ascii_uppercase, k=length))
         if Room.objects.filter(code=code).count() == 0:
             break
     return code

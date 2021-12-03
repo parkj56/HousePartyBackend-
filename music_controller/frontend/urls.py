@@ -1,10 +1,10 @@
-from django.urls import path
-from .views import index
+# from django.urls import path
+# from .views import index
 
-urlpatterns = [
-    path('', index),
-    path('join', index),
-    path('create', index),
-    path('join/1', index),
-    path('room/<str:roomCode>', index)
-]
+# urlpatterns = [
+#     path('', ),
+#     path('join', ),
+#     path('create', ),
+#     path('join/1', ),
+#     path('room/<str:roomCode>',)
+# ]

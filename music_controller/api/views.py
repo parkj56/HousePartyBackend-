@@ -1,3 +1,4 @@
+from django.http import response
 from django.http.response import JsonResponse
 from django.shortcuts import render
 from rest_framework import generics, status
@@ -81,6 +82,17 @@ class CreateRoomView(APIView):
                 return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
 
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        rooms = Room.objects.all()
+        return Response(RoomSerializer(rooms, many=True).data)
+    
+    def delete(self, request):
+        room = Room.objects.get(pk = 1).delete()
+        return Response(room)
+
+
+
 
 class UserInRoom(APIView):
     def get(self, request, format=None):
